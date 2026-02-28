@@ -78,7 +78,7 @@ function M.transform( data )
         local roller = find_roller( roller_name, sr_result[ item_id ].rollers )
 
         if not roller then
-          roller = make_roller( roller_name, item.sr_plus + 1 )
+          roller = make_roller( roller_name, (item.sr_plus or 0) + 1 )
           roller.sr_plus = 0
           roller.role = roller_role
           table.insert( sr_result[ item_id ].rollers, roller )
