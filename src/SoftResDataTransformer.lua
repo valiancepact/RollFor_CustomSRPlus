@@ -82,8 +82,10 @@ function M.transform( data )
           roller.sr_plus = 0
           roller.role = roller_role
           table.insert( sr_result[ item_id ].rollers, roller )
-        else if not item.sr_plus_total then --- Only add a roll if sr_plus_total is not present, meaning this is raw SR from SoftRes, not our own custom implementation
-          roller.rolls = roller.rolls + 1
+        else
+          if not item.sr_plus_total then --- Only add a roll if sr_plus_total is not present, meaning this is raw SR from SoftRes, not our own custom implementation
+            roller.rolls = roller.rolls + 1
+          end
         end
       end
     end
